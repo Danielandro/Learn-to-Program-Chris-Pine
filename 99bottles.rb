@@ -1,3 +1,4 @@
+#BASIC SOLUTION
 # bottles = 99
 
 # while bottles > 0
@@ -15,14 +16,7 @@
 
 #     bottles -= 1
 # end
-#instead of numbers, spell each word out
 
-#define method, taking a number of bottles as a parameter
-#check for thousands, hundreds, teens + tens, ones
-#construct a string representing the number of bottles 
-#construct lyrical strings - OWN METHOD??
-#return lyrical string
-#RECURSIVE??
 
 def bottle_count_in_english number_of_bottles
     if number_of_bottles < 1 # positive numbers only
@@ -94,18 +88,17 @@ end
 
 
 def singSong bottle_count
-
     while bottle_count > 0
-        string = bottle_count_in_english bottle_count
+        numstring = bottle_count_in_english bottle_count
         if bottle_count > 1
-            puts "#{string} bottles of beer on the wall,"
-            puts "#{string} bottles of beer,"
+            puts "#{numstring} bottles of beer on the wall,"
+            puts "#{numstring} bottles of beer,"
             puts "you take one down and pass it around,"
             puts "#{bottle_count_in_english bottle_count - 1} bottles of beer on the wall"
             puts
         else
-            puts "#{string} bottle of beer on the wall,"
-            puts "#{string} bottle of beer,"
+            puts "#{numstring} bottle of beer on the wall,"
+            puts "#{numstring} bottle of beer,"
             puts "you take one down and pass it around,"
             puts "zero bottles of beer on the wall"
             puts
@@ -114,4 +107,5 @@ def singSong bottle_count
     bottle_count -= 1
     end
 end
- singSong 9999
+
+singSong 99
