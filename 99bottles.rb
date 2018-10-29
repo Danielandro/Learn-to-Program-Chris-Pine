@@ -39,14 +39,14 @@ def bottle_count number_of_bottles
     #THOUSANDS    
     left = number_of_bottles # how much left to write
     write = number_of_bottles / 1000 # part of number currently being written
-    left = left - 1
-
-    while write > 0 # number has thousands
+    
+    if write > 0 # number has thousands
         thousands = englishNumber write #gets number of thousands
         numstring = numstring + thousands + ' thousand'
-        if left > 0
-            numstring = numstring + ' ' #adds space before next denomination
-        end
+        # if left > 0
+        #     numstring = numstring + ' ' #adds space before next denomination
+        # end
+       
     end
 
     #HUNDREDS
@@ -88,4 +88,8 @@ def bottle_count number_of_bottles
     if write > 0
         numstring = numstring + onesPlace[write - 1]
     end
+
+    numstring #return string
 end
+
+# englishNumber(left - 1)
