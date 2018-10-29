@@ -1,20 +1,20 @@
-bottles = 99
+# bottles = 99
 
-while bottles > 0
-    if bottles > 1
-        puts "#{bottles} bottles of beer on the wall,"
-        puts "#{bottles} bottles of beer,"
-        puts "you take one down and pass it around,"
-        puts "#{bottles - 1} bottles of beer on the wall"
-    else
-        puts "#{bottles} bottle of beer on the wall,"
-        puts "#{bottles} bottle of beer,"
-        puts "you take one down and pass it around,"
-        puts "#{bottles - 1} bottles of beer on the wall"
-    end      
+# while bottles > 0
+#     if bottles > 1
+#         puts "#{bottles} bottles of beer on the wall,"
+#         puts "#{bottles} bottles of beer,"
+#         puts "you take one down and pass it around,"
+#         puts "#{bottles - 1} bottles of beer on the wall"
+#     else
+#         puts "#{bottles} bottle of beer on the wall,"
+#         puts "#{bottles} bottle of beer,"
+#         puts "you take one down and pass it around,"
+#         puts "#{bottles - 1} bottles of beer on the wall"
+#     end      
 
-    bottles -= 1
-end
+#     bottles -= 1
+# end
 #instead of numbers, spell each word out
 
 #define method, taking a number of bottles as a parameter
@@ -24,8 +24,8 @@ end
 #return lyrical string
 #RECURSIVE??
 
-def bottle_count number_of_bottles
-    if number < 1 # positive numbers only
+def bottle_count_in_english number_of_bottles
+    if number_of_bottles < 1 # positive numbers only
         return 'Please enter a number greater than zero'
     end
 
@@ -39,14 +39,14 @@ def bottle_count number_of_bottles
     #THOUSANDS    
     left = number_of_bottles # how much left to write
     write = number_of_bottles / 1000 # part of number currently being written
+    left = left - write*1000
     
     if write > 0 # number has thousands
-        thousands = englishNumber write #gets number of thousands
+        thousands = bottle_count_in_english write #gets number of thousands
         numstring = numstring + thousands + ' thousand'
-        # if left > 0
-        #     numstring = numstring + ' ' #adds space before next denomination
-        # end
-       
+        if left > 0
+            numstring = numstring + ' ' #adds space before next denomination
+        end       
     end
 
     #HUNDREDS
@@ -54,7 +54,7 @@ def bottle_count number_of_bottles
     left = left - write*100
 
     if write > 0
-        hundreds = englishNumber write #gets number of hundreds
+        hundreds = bottle_count_in_english write #gets number of hundreds
         numstring = numstring + hundreds + ' hundred'
     
         if left > 0
@@ -92,4 +92,26 @@ def bottle_count number_of_bottles
     numstring #return string
 end
 
-# englishNumber(left - 1)
+
+def singSong bottle_count
+
+    while bottle_count > 0
+        string = bottle_count_in_english bottle_count
+        if bottle_count > 1
+            puts "#{string} bottles of beer on the wall,"
+            puts "#{string} bottles of beer,"
+            puts "you take one down and pass it around,"
+            puts "#{bottle_count_in_english bottle_count - 1} bottles of beer on the wall"
+            puts
+        else
+            puts "#{string} bottle of beer on the wall,"
+            puts "#{string} bottle of beer,"
+            puts "you take one down and pass it around,"
+            puts "zero bottles of beer on the wall"
+            puts
+        end      
+
+    bottle_count -= 1
+    end
+end
+ singSong 9999
