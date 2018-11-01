@@ -16,3 +16,7 @@ minute = gets.chomp
 puts "At how many seconds were you born?"
 seconds = gets.chomp
 
+your_earth_day = Time.mktime(year, month, day, hour, minute, seconds)
+
+puts "Your birthday is #{your_earth_day}"
+puts "You will turn one billion seconds old on: #{your_earth_day + 1_000_000_000}" 
