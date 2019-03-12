@@ -6,4 +6,11 @@ movie_database =  {
   :"Raiders of the Lost Ark" => 1981
 }
 
-movie_database.each { |movie, year| puts year }
+movie_years = []
+
+movie_database.each do |movie, year| 
+  movie_years << year
+  puts year 
+end
+
+puts "Movie Years : #{movie_years}"
