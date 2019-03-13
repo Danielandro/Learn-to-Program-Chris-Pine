@@ -24,3 +24,7 @@ while n <= 8
   puts "Factorial of #{n} is #{factorial}"
   n += 1
 end
+
+def count
+  NUMBER = 8
+end
