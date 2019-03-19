@@ -25,6 +25,11 @@ while n <= 8
   n += 1
 end
 
-def count
-  NUMBER = 8
+a = 3 > 4
+
+case a 
+when true
+  puts "This true"
+else
+    puts "Lies demon!"
 end
